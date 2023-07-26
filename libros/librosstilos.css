@@ -1,0 +1,228 @@
+
+.banner{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.pagina{
+    background-color: #faf3ea;
+}
+
+
+
+.tituloo{
+    text-align: center;
+    /* border-style: solid; */
+    /* border-radius: 30px; */
+    padding: 20px;
+    color: tomato;
+}
+
+.menu{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    /* padding: 0 20px; */
+    /* text-align: center; */
+    /* border-style: solid; */
+    /* padding: 20px; */
+    color: tomato;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+[ type = "button" ] {
+    background-image: linear-gradient(45deg, #f98185 0%, #f4d7ce 99%, #fad0c4 100%);
+    border: none;
+    color: rgb(255, 255, 255);
+    outline: none;
+    border: 2px solid #f775c5f2;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 10px;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+}
+
+[ type = "button" ]:hover {
+    transform: scale(1);
+    box-shadow: 0 0 30px #ef91e9f2;
+    transform: scale(1.1);
+    cursor: pointer;
+}	
+
+
+.cos li a{
+    background-color:rgb(248, 96, 187);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    float: left;
+}
+
+.cos  a:hover {
+    background-color: #f5e7e781;
+    border-radius: 25px;
+    
+}
+
+/* .cos > li {
+    
+} */
+.cos  ul {
+    display:none;
+    position: absolute;
+}
+
+
+/* asdfghjklñkjhgfdsxdcfvgbhnjm,lkojihugyftdrezxrctvybjnkm */
+
+.barra{
+    box-sizing: border-box;
+    width: max(20%, 200px);
+    /* border-style: solid; */
+    padding: 20px;
+    float: right;
+    }
+.principal{
+    margin-right: max(22%, 200px);
+    padding: 0 10px;
+    height: 100%;
+    text-align: left;
+    background:white;
+    float: inherit;
+    }
+.title{
+    text-align: center;
+    border-style: solid;
+    padding: 20px;
+    
+    }
+.img-tarjeta{
+      padding-top: 10px;
+    width: 150px;
+    }
+    /*menu barra fijo*/
+    
+.barra header{
+    font-weight: bold;
+    color: whitesmoke;    
+    font-size: 1.5rem;
+    text-align: center;
+    border-bottom: 1px solid #f775c5f2;
+    background:linear-gradient(45deg, #f98185 0%, #f4d7ce 99%, #fad0c4 100%);
+    }
+.barra ul{
+    list-style:none;
+    padding-left:0;
+    margin-top:0;
+    }
+.barra ul li{
+    display:block;
+    position: relative;
+    padding: 8px 10px;
+    margin-left:0;
+    border-bottom:1px solid #f775c5f2
+    }
+.barra ul li a{
+    color: #f67485f2;
+    text-decoration:none;
+    }
+.barra ul li a:after{
+    content: ' ';
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    }
+    
+.barra ul li:hover, .barra ul li:hover a{
+    background: #fa8798;
+    color: white;
+    }
+    
+    
+    
+    
+    /* Estilos Tarjeta */
+.tarjeta{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width:22%;
+        height:400px;
+        border: 1px solid lightgray;
+        box-shadow: 2px 2px 8px 4px #d3d3d3d1;
+        border-radius:15px;
+        font-family: sans-serif;
+        margin: 10px;
+        margin-bottom: 20px;
+        float: left;
+        position: relative;
+      
+      }
+[type="button"] .btn-guardar {
+    background-image: linear-gradient(45deg, #f98185 0%, #f4d7ce 99%, #fad0c4 100%);
+    border: none;
+    color: rgb(255, 255, 255);
+    outline: none;
+    border: 2px solid #f775c5f2;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 10px;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+        /* width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0; */
+}
+[ type = "button" ] .btn-guardar:hover {
+            transform: scale(1);
+            box-shadow: 0 0 30px #ef91e9f2;
+            transform: scale(1.1);
+            cursor: pointer;
+}
+.titulo{
+        font-size: flex;
+        font-weight: bold ;
+        padding: 10px 10px 0 10px;;
+      }
+.autor{
+        font-size: flex;
+        padding: 0;
+    }
+.pie{
+        background: #ff66eb;
+        border-radius:0 0 15px 15px;
+        padding: 10px;
+        text-align: bottom;
+      
+      }
+.pie a{
+        text-decoration: none;
+        color: white;
+      }
+.pie a:after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    
+      }
+/* Estilos Tarjeta */

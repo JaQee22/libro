@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="librosstilos.css">
+    <title>Libreria</title>
+   <!-- jQuery CDN (Colócalo en el head o al final del body) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body class="pagina">
+    <div class="banner">
+        <h1 class="tituloo">Open bookStore</h1>
+    </div>
+    <div class="menu">
+        <ul class = "Cos">
+            <a href="" type="button" data-target="Opcion1">Los Más Vistos</a>
+            <a href="" type="button" id="Guardarr"   data-target="Opcion2">Mis Libros</a>
+            <!-- <a href="" type="button" data-target="Opcion1">Favoritos</a> -->
+            
+        </ul>
+        
+    </div>
+    <div class="barra">
+        <header>Categorías</header>
+        <div id="json_response">
+            <script>
+                $('#call_service').ready(function(){
+                    $.ajax({
+                        url: 'https://www.etnassoft.com/api/v1/get/?get_categories=all',
+                        datatype: 'json',
+                        success: function(categorias){
+                            $('#json_response').html('Cargando...');
+                            categorias = JSON.parse(categorias);
+                            if(categorias.length > 0){
+                                let html = '<ul>\n';
+                                $.each(categorias, function(id, cat){
+                                    html += '<li><a href="'+cat.category_id+'">'+cat.name+'</a></li>\n';
+                                });
+                                html += '</ul>\n';
+                                $('#json_response').html(html);
+                            }
+                            else{
+                                $('#json_response').html('No se encontraron datos');
+                            }
+                        },
+                        statusCode: {
+                            404: function(){
+                                $('#json_response').html('Servicio no encontrado');
+                            }
+                        }
+                    });
+                })
+
+                $('#json_response').on('click', 'a', function(e){
+                    e.preventDefault();
+                    var categoryId = $(this).attr('href');
+                    var categoryName = $(this).text();
+                    var category = $(this).text();
+                    console.log(categoryName);
+                    loadCategory(categoryId, categoryName, category);
+                });
+
+                function loadCategory(categoryId, categoryName, category ){
+                    $('#principal').empty();
+                    $('#principal').html('Cargando Categoria "'+categoryName+'".');
+                    $.ajax({
+                        url: 'https://www.etnassoft.com/api/v1/get/?category_id='+categoryId,
+                        datatype: 'json',
+                        success: function(data){
+                            if(data.length > 0){
+                                data = JSON.parse(data);
+                                let html = '\n';
+                                $.each(data, function(id, obj){
+                                    html += '<div class="tarjeta">';
+                                    html += '<div><img class="img-tarjeta" src="'+obj.cover+'" alt="muestra"></div>';
+                                    html += '<div class="titulo">'+obj.title+'</div>';
+                                    html += '<div class="autor"> Autor(a): '+obj.author+'</div>';
+                                    html += '<div class="btn-guardar"><button type="button" class="btn btn-success btn-guardar">guardar</button></div>';
+                                    html += '</div>';
+                                });
+                                $('#principal').html(html);
+                            }
+                            else{
+                                $('#principal').html('No se encontraron datos');
+                            }
+                        },
+                        statusCode: {
+                            404: function(){
+                                $('#principal').html('Servicio no encontrado');
+                            }
+                        }
+                    });
+                }
+            </script>
+
+        </div>
+
+    </div>
+    <div id="principal" class="principal">
+        <script>
+            $('#call_service').ready(function(){
+                $.ajax({
+                    url: 'https://www.etnassoft.com/api/v1/get/?criteria=most_viewed',
+                    datatype: 'json',
+                    success:function(data){
+                        $('#principal') .html('Cargando Categorias "Mas vistos"...');
+                        data = JSON.parse(data);
+                        console.log(data);
+                        if (data.length > 0){
+                            let html = '\n';
+                            $.each(data, function(id, obj){
+                                html += '<div class="tarjeta">';
+                                html += '<div><img class="img-tarjeta" src="'+obj.cover+'" alt="muestra"></div>';
+                                html += '<div class="titulo">'+obj.title+'</div>';
+                                html += '<div class="autor"> Autor(a): '+obj.author+'</div>';
+                                html += '<div class="btn-guardar"><button type="button" class="btn btn-success btn-guardar">guardar</button></div>';
+                                html += '</div>';
+                            });
+                            $('#principal').html(html);   
+                        }
+                        else{
+                            $('#principal').html('No se encontraron datos');
+                        }
+                    },
+                    statusCode: {
+                        404: function(){
+                            $('#principal').html('Servicio no encontrado');
+                        }
+                    }
+                });
+                
+            })
+                   
+            
+        </script>
+
+    </div>
+   
+
+</body>
+</html>
